@@ -14,9 +14,9 @@ export const WELCOME = {
 export const STOPS = [
   {
     id: 1,
-    name: "Stop 1",
-    lat: 52.3702,
-    lng: 4.8952,
+    name: "Kronenburgerpark",
+    lat: 51.845663,
+    lng: 5.857788,
     arrivalRadius: 20,
     puzzle: {
       type: "riddle",
@@ -29,9 +29,9 @@ export const STOPS = [
   },
   {
     id: 2,
-    name: "Stop 2",
-    lat: 52.3720,
-    lng: 4.8970,
+    name: "Grote Markt",
+    lat: 51.847495,
+    lng: 5.863777,
     arrivalRadius: 20,
     puzzle: {
       type: "code",
@@ -44,9 +44,9 @@ export const STOPS = [
   },
   {
     id: 3,
-    name: "Stop 3",
-    lat: 52.3740,
-    lng: 4.8990,
+    name: "Waalkade",
+    lat: 51.849631,
+    lng: 5.866159,
     arrivalRadius: 20,
     puzzle: {
       type: "memory",
@@ -61,8 +61,8 @@ export const STOPS = [
 ];
 
 export const FINAL = {
-  lat: 52.3760,
-  lng: 4.9010,
+  lat: 51.847778,
+  lng: 5.870833,
   arrivalRadius: 30,
   title: "Jullie zijn er! 🥂",
   message:
