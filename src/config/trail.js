@@ -14,9 +14,11 @@ export const WELCOME = {
 export const STOPS = [
   {
     id: 1,
-    name: "Zwembad",
-    lat: 51.83833033970654, 
-    lng: 5.82807232626584,
+    name: "Bankje",
+    lat: 51.840211,
+    lng: 5.833155,
+    // lat: 51.84021180159039,
+    // lng: 5.833155188908399,
     arrivalRadius: 20,
     puzzle: {
       type: "riddle",
@@ -29,24 +31,11 @@ export const STOPS = [
   },
   {
     id: 2,
-    name: "Grote Markt",
-    lat: 51.847495,
-    lng: 5.863777,
-    arrivalRadius: 20,
-    puzzle: {
-      type: "code",
-      question:
-        "De code is verborgen in het volgende:\n\nJullie trouwdatum: dag × maand\n\nVoer het getal in als antwoord.",
-      answer: "vul_hier_antwoord_in",
-      hint: "Denk aan de datum die voor jullie altijd speciaal is.",
-    },
-    completeMessage: "Slim opgelost! Door naar de volgende aanwijzing! 🔑",
-  },
-  {
-    id: 3,
-    name: "Waalkade",
-    lat: 51.849631,
-    lng: 5.866159,
+    name: "Midden in park",
+    lat: 51.838292, 
+    lng: 5.830611,
+    // lat: 51.849631,
+    // lng: 5.866159,
     arrivalRadius: 20,
     puzzle: {
       type: "memory",
@@ -57,6 +46,21 @@ export const STOPS = [
     },
     completeMessage:
       "Wat een mooie herinnering! Jullie zijn er bijna... ✨",
+  },
+  {
+    id: 3,
+    name: "Zwembad",
+    lat: 51.83833033970654, 
+    lng: 5.82807232626584,
+    arrivalRadius: 20,
+    puzzle: {
+      type: "code",
+      question:
+        "De code is verborgen in het volgende:\n\nJullie trouwdatum: dag × maand\n\nVoer het getal in als antwoord.",
+      answer: "vul_hier_antwoord_in",
+      hint: "Denk aan de datum die voor jullie altijd speciaal is.",
+    },
+    completeMessage: "Slim opgelost! Door naar de volgende aanwijzing! 🔑",
   },
 ];
 
