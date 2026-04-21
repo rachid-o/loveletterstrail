@@ -340,6 +340,31 @@ p { line-height: 1.6; color: var(--text); }
 }
 .progress-dot.done { background: var(--gold); border-color: var(--gold); }
 
+/* ── Refresh button (persistent overlay) ───────────────────── */
+.refresh-btn {
+  position: fixed;
+  top: clamp(10px, 3vw, 16px);
+  right: clamp(10px, 3vw, 16px);
+  z-index: 100;
+  width: clamp(36px, 10vw, 44px);
+  height: clamp(36px, 10vw, 44px);
+  border-radius: 50%;
+  background: rgba(26, 18, 9, 0.7);
+  border: 1px solid var(--gold-dim);
+  color: var(--gold-dim);
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: color 0.2s, border-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.refresh-btn:hover  { color: var(--gold); border-color: var(--gold); }
+.refresh-btn:active { transform: scale(0.92); }
+.refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
 /* ── Final screens ──────────────────────────────────────────── */
 .final-arrived-screen { gap: clamp(18px, 4vh, 28px); }
 

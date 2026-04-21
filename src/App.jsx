@@ -6,6 +6,7 @@ import NavigationScreen from "./components/NavigationScreen";
 import PuzzleScreen from "./components/PuzzleScreen";
 import StopCompleteScreen from "./components/StopCompleteScreen";
 import FinalScreen from "./components/FinalScreen";
+import RefreshButton from "./components/RefreshButton";
 import { STOPS } from "./config/trail";
 
 export default function App() {
@@ -50,17 +51,13 @@ export default function App() {
     update({ finalArrived: true });
   }, [update]);
 
-  if (screen === "pin") return <PinScreen onSuccess={handlePinSuccess} />;
-  if (screen === "welcome") return <WelcomeScreen onStart={handleStart} />;
-  if (screen === "navigate")
-    return (
-      <NavigationScreen
-        stopIndex={currentStopIndex}
-        onArrived={handleArrived}
-      />
-    );
-  if (screen === "puzzle")
-    return (
+  let content = null;
+  if (screen === "pin") content = <PinScreen onSuccess={handlePinSuccess} />;
+  else if (screen === "welcome") content = <WelcomeScreen onStart={handleStart} />;
+  else if (screen === "navigate")
+    content = <NavigationScreen stopIndex={currentStopIndex} onArrived={handleArrived} />;
+  else if (screen === "puzzle")
+    content = (
       <PuzzleScreen
         stopIndex={currentStopIndex}
         wrongAttempts={wrongAttempts}
@@ -68,20 +65,15 @@ export default function App() {
         onWrongAttempt={handleWrongAttempt}
       />
     );
-  if (screen === "stopComplete")
-    return (
-      <StopCompleteScreen
-        stopIndex={currentStopIndex}
-        onNext={handleNextStop}
-      />
-    );
-  if (screen === "final")
-    return (
-      <FinalScreen
-        arrived={!!finalArrived}
-        onArrived={handleFinalArrived}
-      />
-    );
+  else if (screen === "stopComplete")
+    content = <StopCompleteScreen stopIndex={currentStopIndex} onNext={handleNextStop} />;
+  else if (screen === "final")
+    content = <FinalScreen arrived={!!finalArrived} onArrived={handleFinalArrived} />;
 
-  return null;
+  return (
+    <>
+      <RefreshButton />
+      {content}
+    </>
+  );
 }

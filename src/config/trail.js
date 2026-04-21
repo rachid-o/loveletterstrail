@@ -14,9 +14,9 @@ export const WELCOME = {
 export const STOPS = [
   {
     id: 1,
-    name: "Kronenburgerpark",
-    lat: 51.845663,
-    lng: 5.857788,
+    name: "Zwembad",
+    lat: 51.83833033970654, 
+    lng: 5.82807232626584,
     arrivalRadius: 20,
     puzzle: {
       type: "riddle",
