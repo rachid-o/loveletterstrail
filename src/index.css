@@ -18,6 +18,11 @@
   --pad-x:     clamp(16px, 5vw, 32px);
 }
 
+html {
+  /* Enkele bron van waarheid: 1rem = deze waarde. Alle andere fonts in rem. */
+  font-size: clamp(19px, 5.5vw, 23px);
+}
+
 html, body, #root {
   height: 100%;
   width: 100%;
@@ -28,7 +33,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Lato', sans-serif;
-  font-size: clamp(15px, 4vw, 18px);
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -53,20 +58,20 @@ body {
 /* ── Typography ─────────────────────────────────────────────── */
 h1 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  font-size: 2.4rem;
   color: var(--gold);
   line-height: 1.25;
 }
 
 h2 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.5rem, 6.5vw, 2.2rem);
+  font-size: 2rem;
   color: var(--gold);
 }
 
-p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
+p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
 
-.subtitle { color: var(--text-dim); font-size: clamp(0.95rem, 4vw, 1.1rem); }
+.subtitle { color: var(--text-dim); font-size: 1.05rem; }
 
 /* ── Buttons ────────────────────────────────────────────────── */
 .btn-primary {
@@ -74,8 +79,8 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   color: #1a1209;
   border: none;
   border-radius: var(--radius);
-  padding: clamp(12px, 3.5vw, 18px) clamp(24px, 6vw, 40px);
-  font-size: clamp(0.95rem, 4vw, 1.15rem);
+  padding: clamp(14px, 4vw, 20px) clamp(28px, 7vw, 44px);
+  font-size: 1.2rem;
   font-family: 'Cinzel', serif;
   font-weight: 700;
   cursor: pointer;
@@ -93,8 +98,8 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   color: var(--gold);
   border: 1.5px solid var(--gold);
   border-radius: var(--radius);
-  padding: clamp(8px, 2.5vw, 12px) clamp(18px, 5vw, 28px);
-  font-size: clamp(0.85rem, 3.5vw, 1rem);
+  padding: clamp(10px, 3vw, 14px) clamp(20px, 6vw, 32px);
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -106,8 +111,8 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   color: var(--bg);
   font-family: 'Cinzel', serif;
   font-weight: 700;
-  font-size: clamp(0.7rem, 3vw, 0.85rem);
-  padding: 4px 14px;
+  font-size: 0.95rem;
+  padding: 5px 16px;
   border-radius: 99px;
   letter-spacing: 0.06em;
 }
@@ -117,15 +122,15 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   background: var(--bg-card);
   border: 1px solid var(--gold-dim);
   color: var(--gold);
-  font-size: clamp(0.7rem, 3vw, 0.85rem);
-  padding: 4px 12px;
+  font-size: 0.95rem;
+  padding: 5px 14px;
   border-radius: 99px;
 }
 
 /* ── PIN screen ─────────────────────────────────────────────── */
-.pin-header .compass-icon { font-size: clamp(3.5rem, 14vw, 6rem); margin-bottom: 6px; }
-.pin-header h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
-.pin-header p  { color: var(--text-dim); margin-top: 4px; font-size: clamp(1rem, 4.5vw, 1.2rem); }
+.pin-header .compass-icon { font-size: 5rem; margin-bottom: 6px; }
+.pin-header h1 { font-size: 2.4rem; }
+.pin-header p  { color: var(--text-dim); margin-top: 4px; font-size: 1.2rem; }
 
 .pin-dots {
   display: flex;
@@ -160,7 +165,7 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   background: var(--bg-card);
   border: 1.5px solid var(--gold-dim);
   color: var(--text);
-  font-size: clamp(1.6rem, 6.5vw, 2.2rem);
+  font-size: 2rem;
   font-family: 'Lato', sans-serif;
   cursor: pointer;
   transition: background 0.15s;
@@ -170,12 +175,12 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
 }
 .pin-btn:hover  { background: rgba(212,160,23,0.15); }
 .pin-btn:active { background: rgba(212,160,23,0.3); }
-.delete-btn { font-size: clamp(1.2rem, 5vw, 1.7rem); color: var(--gold); }
+.delete-btn { font-size: 1.5rem; color: var(--gold); }
 
 /* ── Welcome screen ─────────────────────────────────────────── */
 .welcome-screen { gap: clamp(14px, 3vh, 20px); }
 
-.welcome-icon { font-size: clamp(3rem, 12vw, 5rem); }
+.welcome-icon { font-size: 4.5rem; }
 
 .welcome-photo {
   width: min(38vw, 160px);
@@ -197,7 +202,7 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   text-align: left;
   line-height: 1.7;
 }
-.welcome-message p { color: var(--text); font-size: clamp(0.9rem, 3.8vw, 1.05rem); }
+.welcome-message p { color: var(--text); font-size: 1.05rem; }
 
 .stop-count {
   display: flex;
@@ -239,22 +244,22 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
 }
 .distance-value {
   font-family: 'Cinzel', serif;
-  font-size: clamp(3.5rem, 16vw, 6rem);
+  font-size: 4.5rem;
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
 }
-.distance-label { color: var(--text-dim); font-size: clamp(1.1rem, 5vw, 1.5rem); }
+.distance-label { color: var(--text-dim); font-size: 1.3rem; }
 
-.nav-hint { color: var(--text-dim); font-size: clamp(0.8rem, 3.2vw, 0.95rem); max-width: 90%; }
+.nav-hint { color: var(--text-dim); font-size: 0.9rem; max-width: 90%; }
 
-.error-text  { color: var(--red);  font-size: clamp(0.9rem, 3.8vw, 1.1rem); }
-.loading-text { color: var(--text-dim); font-size: clamp(0.9rem, 3.8vw, 1.1rem); }
+.error-text  { color: var(--red);  font-size: 1rem; }
+.loading-text { color: var(--text-dim); font-size: 1rem; }
 
 /* ── Puzzle screen ──────────────────────────────────────────── */
 .puzzle-screen { justify-content: space-evenly; padding-top: clamp(16px, 4vh, 32px); }
 
-.puzzle-type-icon { font-size: clamp(3rem, 12vw, 4.5rem); }
+.puzzle-type-icon { font-size: 3.5rem; }
 
 .puzzle-box {
   background: var(--bg-card);
@@ -266,7 +271,7 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   box-shadow: var(--shadow);
 }
 .puzzle-question {
-  font-size: clamp(1.05rem, 4.5vw, 1.3rem);
+  font-size: 1.2rem;
   line-height: 1.8;
   white-space: pre-line;
   color: var(--text);
@@ -286,7 +291,7 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   border: 1.5px dashed var(--gold-dim);
   border-radius: var(--radius);
   color: var(--gold-dim);
-  font-size: clamp(0.95rem, 4vw, 1.1rem);
+  font-size: 1.1rem;
   padding: clamp(10px, 3vw, 14px) clamp(20px, 5vw, 28px);
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s;
@@ -296,13 +301,13 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
 .btn-hint:hover { color: var(--gold); border-color: var(--gold); }
 
 .hint-label {
-  font-size: clamp(0.75rem, 3vw, 0.85rem);
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--gold);
   display: block;
   margin-bottom: 4px;
 }
-.hint-box p { font-size: clamp(0.85rem, 3.5vw, 1rem); color: var(--text-dim); }
+.hint-box p { font-size: 1rem; color: var(--text-dim); }
 
 .answer-form {
   display: flex;
@@ -316,7 +321,7 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   border: 1.5px solid var(--gold-dim);
   border-radius: var(--radius);
   padding: clamp(14px, 4vw, 20px) clamp(16px, 4.5vw, 24px);
-  font-size: clamp(1.1rem, 5vw, 1.4rem);
+  font-size: 1.3rem;
   color: var(--text);
   text-align: center;
   font-family: 'Lato', sans-serif;
@@ -328,12 +333,12 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
 
 .wrong-feedback {
   color: var(--red);
-  font-size: clamp(0.85rem, 3.5vw, 1rem);
+  font-size: 1rem;
   max-width: 90%;
 }
 
 /* ── Stop complete screen ───────────────────────────────────── */
-.complete-icon { font-size: clamp(5rem, 22vw, 8rem); animation: pop 0.5s cubic-bezier(.36,2,.45,.9) both; }
+.complete-icon { font-size: 6rem; animation: pop 0.5s cubic-bezier(.36,2,.45,.9) both; }
 
 @keyframes pop {
   from { transform: scale(0.3); opacity: 0; }
@@ -409,7 +414,7 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   gap: 20px;
   text-align: center;
 }
-.confirm-dialog p { font-size: clamp(0.95rem, 4vw, 1.1rem); color: var(--text); }
+.confirm-dialog p { font-size: 1.1rem; color: var(--text); }
 .confirm-actions {
   display: flex;
   gap: 12px;
@@ -422,7 +427,7 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   border: none;
   border-radius: var(--radius);
   padding: clamp(10px, 3vw, 14px);
-  font-size: clamp(0.9rem, 3.8vw, 1rem);
+  font-size: 1rem;
   font-family: 'Cinzel', serif;
   font-weight: 700;
   cursor: pointer;
@@ -433,7 +438,7 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
 /* ── Final screens ──────────────────────────────────────────── */
 .final-arrived-screen { gap: clamp(18px, 4vh, 28px); }
 
-.fireworks { font-size: clamp(4rem, 18vw, 6rem); animation: pop 0.6s cubic-bezier(.36,2,.45,.9) both; }
+.fireworks { font-size: 5rem; animation: pop 0.6s cubic-bezier(.36,2,.45,.9) both; }
 
 .final-message {
   background: var(--bg-card);
@@ -445,6 +450,6 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   text-align: center;
   box-shadow: 0 0 30px rgba(212,160,23,0.2);
 }
-.final-message p { color: var(--text); line-height: 1.75; font-size: clamp(0.9rem, 3.8vw, 1.05rem); }
+.final-message p { color: var(--text); line-height: 1.75; font-size: 1.05rem; }
 
-.final-hearts { font-size: clamp(1.6rem, 7vw, 2.4rem); letter-spacing: clamp(4px, 2vw, 10px); }
+.final-hearts { font-size: 2rem; letter-spacing: clamp(4px, 2vw, 10px); }
