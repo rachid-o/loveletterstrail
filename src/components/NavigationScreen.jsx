@@ -1,13 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useGeolocation } from "../hooks/useGeolocation";
 import { useCompass } from "../hooks/useCompass";
 import { haversineDistance, calculateBearing, formatDistance } from "../utils/geo";
 import { STOPS } from "../config/trail";
 
+// Always rotate the shortest way (avoids spinning 340° instead of 20°)
+function shortestPath(from, to) {
+  const diff = ((to - from + 180) % 360 + 360) % 360 - 180;
+  return from + diff;
+}
+
 export default function NavigationScreen({ stopIndex, onArrived }) {
   const stop = STOPS[stopIndex];
   const { position, error: gpsError } = useGeolocation();
   const { heading, permissionNeeded, requestPermission } = useCompass();
+  const prevRotationRef = useRef(null);
 
   const distance = position
     ? haversineDistance(position.lat, position.lng, stop.lat, stop.lng)
@@ -17,9 +24,14 @@ export default function NavigationScreen({ stopIndex, onArrived }) {
     ? calculateBearing(position.lat, position.lng, stop.lat, stop.lng)
     : null;
 
-  // Pijlrotatie relatief aan device-richting
-  const arrowRotation =
+  const rawRotation =
     bearing !== null && heading !== null ? bearing - heading : bearing ?? 0;
+
+  const arrowRotation =
+    prevRotationRef.current === null
+      ? rawRotation
+      : shortestPath(prevRotationRef.current, rawRotation);
+  prevRotationRef.current = arrowRotation;
 
   useEffect(() => {
     if (distance !== null && distance <= stop.arrivalRadius) {

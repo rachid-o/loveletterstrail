@@ -1,12 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useGeolocation } from "../hooks/useGeolocation";
 import { useCompass } from "../hooks/useCompass";
 import { haversineDistance, calculateBearing, formatDistance } from "../utils/geo";
 import { FINAL } from "../config/trail";
 
+function shortestPath(from, to) {
+  const diff = ((to - from + 180) % 360 + 360) % 360 - 180;
+  return from + diff;
+}
+
 export default function FinalScreen({ arrived, onArrived }) {
   const { position, error: gpsError } = useGeolocation();
   const { heading, permissionNeeded, requestPermission } = useCompass();
+  const prevRotationRef = useRef(null);
 
   const distance = position
     ? haversineDistance(position.lat, position.lng, FINAL.lat, FINAL.lng)
@@ -16,8 +22,14 @@ export default function FinalScreen({ arrived, onArrived }) {
     ? calculateBearing(position.lat, position.lng, FINAL.lat, FINAL.lng)
     : null;
 
-  const arrowRotation =
+  const rawRotation =
     bearing !== null && heading !== null ? bearing - heading : bearing ?? 0;
+
+  const arrowRotation =
+    prevRotationRef.current === null
+      ? rawRotation
+      : shortestPath(prevRotationRef.current, rawRotation);
+  prevRotationRef.current = arrowRotation;
 
   useEffect(() => {
     if (!arrived && distance !== null && distance <= FINAL.arrivalRadius) {

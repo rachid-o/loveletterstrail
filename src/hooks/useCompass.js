@@ -6,10 +6,11 @@ export function useCompass() {
   const [error, setError] = useState(null);
 
   const handleOrientation = useCallback((event) => {
-    // webkitCompassHeading = iOS absolute heading; alpha = other browsers
-    if (event.webkitCompassHeading !== undefined) {
+    if (event.webkitCompassHeading != null) {
+      // iOS — absolute compass heading, 0 = north, clockwise
       setHeading(event.webkitCompassHeading);
-    } else if (event.absolute && event.alpha !== null) {
+    } else if (event.alpha != null) {
+      // Android — alpha increases counter-clockwise, convert to clockwise compass
       setHeading((360 - event.alpha) % 360);
     }
   }, []);
@@ -19,6 +20,7 @@ export function useCompass() {
       try {
         const result = await DeviceOrientationEvent.requestPermission();
         if (result === "granted") {
+          // iOS: no absolute event, use regular deviceorientation (has webkitCompassHeading)
           window.addEventListener("deviceorientation", handleOrientation, true);
           setPermissionNeeded(false);
         } else {
@@ -32,15 +34,20 @@ export function useCompass() {
 
   useEffect(() => {
     if (typeof DeviceOrientationEvent?.requestPermission === "function") {
-      // iOS 13+ requires explicit permission
+      // iOS 13+ — needs explicit permission first
       setPermissionNeeded(true);
-    } else if (window.DeviceOrientationEvent) {
-      window.addEventListener("deviceorientation", handleOrientation, true);
+      return;
     }
 
-    return () => {
-      window.removeEventListener("deviceorientation", handleOrientation, true);
-    };
+    // Android Chrome 65+: deviceorientationabsolute gives true magnetic north heading.
+    // Fall back to deviceorientation on older browsers.
+    const eventName =
+      "ondeviceorientationabsolute" in window
+        ? "deviceorientationabsolute"
+        : "deviceorientation";
+
+    window.addEventListener(eventName, handleOrientation, true);
+    return () => window.removeEventListener(eventName, handleOrientation, true);
   }, [handleOrientation]);
 
   return { heading, permissionNeeded, requestPermission, error };
