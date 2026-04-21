@@ -13,7 +13,7 @@ import { STOPS } from "./config/trail";
 
 export default function App() {
   const { progress, update } = useProgress();
-  const { screen, currentStopIndex, wrongAttempts, finalArrived } = progress;
+  const { screen, currentStopIndex, finalArrived } = progress;
 
   const handlePinSuccess = useCallback(() => {
     update({ pinVerified: true, screen: "welcome" });
@@ -30,15 +30,6 @@ export default function App() {
   const handleSolved = useCallback(() => {
     update({ screen: "stopComplete" });
   }, [update]);
-
-  const handleWrongAttempt = useCallback((stopIndex) => {
-    update({
-      wrongAttempts: {
-        ...wrongAttempts,
-        [stopIndex]: (wrongAttempts[stopIndex] ?? 0) + 1,
-      },
-    });
-  }, [update, wrongAttempts]);
 
   const handleNextStop = useCallback(() => {
     const nextIndex = currentStopIndex + 1;
@@ -62,9 +53,7 @@ export default function App() {
     content = (
       <PuzzleScreen
         stopIndex={currentStopIndex}
-        wrongAttempts={wrongAttempts}
         onSolved={handleSolved}
-        onWrongAttempt={handleWrongAttempt}
       />
     );
   else if (screen === "stopComplete")

@@ -281,6 +281,20 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
   max-width: min(100%, 480px);
   text-align: left;
 }
+.btn-hint {
+  background: transparent;
+  border: 1.5px dashed var(--gold-dim);
+  border-radius: var(--radius);
+  color: var(--gold-dim);
+  font-size: clamp(0.95rem, 4vw, 1.1rem);
+  padding: clamp(10px, 3vw, 14px) clamp(20px, 5vw, 28px);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  width: 100%;
+  max-width: min(100%, 480px);
+}
+.btn-hint:hover { color: var(--gold); border-color: var(--gold); }
+
 .hint-label {
   font-size: clamp(0.75rem, 3vw, 0.85rem);
   font-weight: 700;

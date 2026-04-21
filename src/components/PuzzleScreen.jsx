@@ -1,22 +1,18 @@
 import { useState } from "react";
 import { STOPS } from "../config/trail";
 
-const HINT_AFTER = 3;
-
 const TYPE_ICON = {
   riddle: "🧩",
   code: "🔢",
   memory: "💛",
 };
 
-export default function PuzzleScreen({ stopIndex, wrongAttempts, onSolved, onWrongAttempt }) {
+export default function PuzzleScreen({ stopIndex, onSolved }) {
   const stop = STOPS[stopIndex];
   const { puzzle } = stop;
   const [input, setInput] = useState("");
   const [feedback, setFeedback] = useState(null); // "wrong" | null
-
-  const attempts = wrongAttempts[stopIndex] ?? 0;
-  const showHint = attempts >= HINT_AFTER;
+  const [hintVisible, setHintVisible] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -26,7 +22,6 @@ export default function PuzzleScreen({ stopIndex, wrongAttempts, onSolved, onWro
       onSolved();
     } else {
       setFeedback("wrong");
-      onWrongAttempt(stopIndex);
       setInput("");
       setTimeout(() => setFeedback(null), 1500);
     }
@@ -44,11 +39,15 @@ export default function PuzzleScreen({ stopIndex, wrongAttempts, onSolved, onWro
         <p className="puzzle-question">{puzzle.question}</p>
       </div>
 
-      {showHint && (
+      {hintVisible ? (
         <div className="hint-box">
           <span className="hint-label">💡 Hint</span>
           <p>{puzzle.hint}</p>
         </div>
+      ) : (
+        <button className="btn-hint" onClick={() => setHintVisible(true)}>
+          💡 Hint tonen
+        </button>
       )}
 
       <form className="answer-form" onSubmit={handleSubmit}>
@@ -68,12 +67,7 @@ export default function PuzzleScreen({ stopIndex, wrongAttempts, onSolved, onWro
       </form>
 
       {feedback === "wrong" && (
-        <p className="wrong-feedback">
-          Helaas, dat is niet goed. Probeer het nog eens!
-          {!showHint && attempts + 1 >= HINT_AFTER && (
-            <> Nog één poging en dan krijgen jullie een hint.</>
-          )}
-        </p>
+        <p className="wrong-feedback">Helaas, dat is niet goed. Probeer het nog eens!</p>
       )}
     </div>
   );
