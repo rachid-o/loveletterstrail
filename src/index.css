@@ -37,10 +37,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   min-height: 100dvh;
-  padding: clamp(16px, 4vh, 32px) var(--pad-x) clamp(24px, 6vh, 48px);
-  gap: clamp(14px, 3vh, 24px);
+  padding: clamp(16px, 4vh, 32px) var(--pad-x) clamp(16px, 4vh, 32px);
+  gap: clamp(10px, 2vh, 20px);
   text-align: center;
   animation: fadeIn 0.35s ease;
 }
@@ -53,20 +53,20 @@ body {
 /* ── Typography ─────────────────────────────────────────────── */
 h1 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
   color: var(--gold);
   line-height: 1.25;
 }
 
 h2 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.4rem, 6vw, 2rem);
+  font-size: clamp(1.5rem, 6.5vw, 2.2rem);
   color: var(--gold);
 }
 
-p { line-height: 1.6; color: var(--text); }
+p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
 
-.subtitle { color: var(--text-dim); font-size: clamp(0.85rem, 3.5vw, 1rem); }
+.subtitle { color: var(--text-dim); font-size: clamp(0.95rem, 4vw, 1.1rem); }
 
 /* ── Buttons ────────────────────────────────────────────────── */
 .btn-primary {
@@ -123,21 +123,19 @@ p { line-height: 1.6; color: var(--text); }
 }
 
 /* ── PIN screen ─────────────────────────────────────────────── */
-.pin-screen { gap: clamp(20px, 4vh, 32px); }
-
-.pin-header .compass-icon { font-size: clamp(2.5rem, 10vw, 4rem); margin-bottom: 6px; }
-.pin-header h1 { font-size: clamp(1.3rem, 5.5vw, 1.8rem); }
-.pin-header p  { color: var(--text-dim); margin-top: 4px; }
+.pin-header .compass-icon { font-size: clamp(3.5rem, 14vw, 6rem); margin-bottom: 6px; }
+.pin-header h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+.pin-header p  { color: var(--text-dim); margin-top: 4px; font-size: clamp(1rem, 4.5vw, 1.2rem); }
 
 .pin-dots {
   display: flex;
-  gap: clamp(12px, 4vw, 20px);
+  gap: clamp(16px, 5vw, 28px);
 }
 .dot {
-  width: clamp(14px, 4.5vw, 20px);
-  height: clamp(14px, 4.5vw, 20px);
+  width: clamp(18px, 5.5vw, 26px);
+  height: clamp(18px, 5.5vw, 26px);
   border-radius: 50%;
-  border: 2px solid var(--gold);
+  border: 2.5px solid var(--gold);
   background: transparent;
   transition: background 0.15s;
 }
@@ -152,17 +150,17 @@ p { line-height: 1.6; color: var(--text); }
 
 .pin-pad {
   display: grid;
-  grid-template-columns: repeat(3, min(22vw, 84px));
-  gap: clamp(10px, 3vw, 16px);
+  grid-template-columns: repeat(3, min(27vw, 110px));
+  gap: clamp(12px, 3.5vw, 20px);
 }
 .pin-btn {
-  width: min(22vw, 84px);
-  height: min(22vw, 84px);
+  width: min(27vw, 110px);
+  height: min(27vw, 110px);
   border-radius: 50%;
   background: var(--bg-card);
   border: 1.5px solid var(--gold-dim);
   color: var(--text);
-  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  font-size: clamp(1.6rem, 6.5vw, 2.2rem);
   font-family: 'Lato', sans-serif;
   cursor: pointer;
   transition: background 0.15s;
@@ -172,7 +170,7 @@ p { line-height: 1.6; color: var(--text); }
 }
 .pin-btn:hover  { background: rgba(212,160,23,0.15); }
 .pin-btn:active { background: rgba(212,160,23,0.3); }
-.delete-btn { font-size: clamp(1rem, 4vw, 1.4rem); color: var(--gold); }
+.delete-btn { font-size: clamp(1.2rem, 5vw, 1.7rem); color: var(--gold); }
 
 /* ── Welcome screen ─────────────────────────────────────────── */
 .welcome-screen { gap: clamp(14px, 3vh, 20px); }
@@ -254,9 +252,9 @@ p { line-height: 1.6; color: var(--text); }
 .loading-text { color: var(--text-dim); font-size: clamp(0.9rem, 3.8vw, 1.1rem); }
 
 /* ── Puzzle screen ──────────────────────────────────────────── */
-.puzzle-screen { gap: clamp(14px, 3vh, 20px); justify-content: flex-start; padding-top: clamp(32px, 7vh, 56px); }
+.puzzle-screen { justify-content: space-evenly; padding-top: clamp(16px, 4vh, 32px); }
 
-.puzzle-type-icon { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+.puzzle-type-icon { font-size: clamp(3rem, 12vw, 4.5rem); }
 
 .puzzle-box {
   background: var(--bg-card);
@@ -268,7 +266,7 @@ p { line-height: 1.6; color: var(--text); }
   box-shadow: var(--shadow);
 }
 .puzzle-question {
-  font-size: clamp(0.95rem, 4vw, 1.15rem);
+  font-size: clamp(1.05rem, 4.5vw, 1.3rem);
   line-height: 1.8;
   white-space: pre-line;
   color: var(--text);
@@ -303,8 +301,8 @@ p { line-height: 1.6; color: var(--text); }
   background: var(--bg-card);
   border: 1.5px solid var(--gold-dim);
   border-radius: var(--radius);
-  padding: clamp(12px, 3.5vw, 18px) clamp(14px, 4vw, 20px);
-  font-size: clamp(1rem, 4.5vw, 1.25rem);
+  padding: clamp(14px, 4vw, 20px) clamp(16px, 4.5vw, 24px);
+  font-size: clamp(1.1rem, 5vw, 1.4rem);
   color: var(--text);
   text-align: center;
   font-family: 'Lato', sans-serif;
@@ -321,9 +319,7 @@ p { line-height: 1.6; color: var(--text); }
 }
 
 /* ── Stop complete screen ───────────────────────────────────── */
-.stop-complete-screen { gap: clamp(18px, 4vh, 28px); }
-
-.complete-icon { font-size: clamp(4rem, 18vw, 6rem); animation: pop 0.5s cubic-bezier(.36,2,.45,.9) both; }
+.complete-icon { font-size: clamp(5rem, 22vw, 8rem); animation: pop 0.5s cubic-bezier(.36,2,.45,.9) both; }
 
 @keyframes pop {
   from { transform: scale(0.3); opacity: 0; }
