@@ -10,9 +10,11 @@ const TYPE_ICON = {
 export default function PuzzleScreen({ stopIndex, onSolved }) {
   const stop = STOPS[stopIndex];
   const { puzzle } = stop;
+  const hints = puzzle.hints ?? (puzzle.hint ? [puzzle.hint] : []);
+
   const [input, setInput] = useState("");
   const [feedback, setFeedback] = useState(null); // "wrong" | null
-  const [hintVisible, setHintVisible] = useState(false);
+  const [hintsShown, setHintsShown] = useState(0);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,16 +41,23 @@ export default function PuzzleScreen({ stopIndex, onSolved }) {
         <p className="puzzle-question">{puzzle.question}</p>
       </div>
 
-      {hintVisible ? (
-        <div className="hint-box">
-          <span className="hint-label">💡 Hint</span>
-          <p>{puzzle.hint}</p>
-        </div>
-      ) : (
-        <button className="btn-hint" onClick={() => setHintVisible(true)}>
-          💡 Hint tonen
-        </button>
-      )}
+      <div className="hints-area">
+        {hints.slice(0, hintsShown).map((text, i) => (
+          <div className="hint-box" key={i}>
+            <span className="hint-label">💡 Hint {hints.length > 1 ? i + 1 : ""}</span>
+            <p>{text}</p>
+          </div>
+        ))}
+
+        {hintsShown < hints.length && (
+          <button
+            className="btn-hint"
+            onClick={() => setHintsShown((n) => n + 1)}
+          >
+            {hintsShown === 0 ? "💡 Hint tonen" : "💡 Nog een hint"}
+          </button>
+        )}
+      </div>
 
       <form className="answer-form" onSubmit={handleSubmit}>
         <input

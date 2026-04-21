@@ -300,6 +300,15 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
 }
 .btn-hint:hover { color: var(--gold); border-color: var(--gold); }
 
+.hints-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: min(100%, 480px);
+  align-items: center;
+}
+
 .hint-label {
   font-size: 0.85rem;
   font-weight: 700;
