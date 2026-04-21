@@ -58,3 +58,27 @@ De service worker (`vite-plugin-pwa` + Workbox) cached alle assets na het eerste
 ## Deployment
 
 GitHub Actions (`.github/workflows/deploy.yml`) bouwt en deployt automatisch bij een push naar `main`. Vite gebruikt `base: '/loveletterstrail/'` alleen in de GitHub Actions-omgeving (`GITHUB_ACTIONS=true`), lokaal is de base `/`.
+
+## Voor elke commit
+
+Voer altijd beide commando's uit en zorg dat ze slagen vóór je commit en pusht:
+
+```bash
+npm run test   # 16 tests in src/test/
+npm run build  # Vite + PWA/Workbox build
+```
+
+Laat de codebase nooit achter in een staat waarbij `npm run test` of `npm run build` faalt.
+
+## Tests
+
+Testbestanden staan in `src/test/`. Vitest met jsdom-omgeving en `@testing-library/react`.
+
+- `geo.test.js` — unit tests voor `haversineDistance`, `calculateBearing`, `formatDistance`
+- `useProgress.test.js` — hook-tests voor localStorage opslaan, laden en resetten
+
+Watchmode tijdens ontwikkeling:
+
+```bash
+npm run test:watch
+```
