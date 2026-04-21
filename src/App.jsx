@@ -9,6 +9,7 @@ import FinalScreen from "./components/FinalScreen";
 import RefreshButton from "./components/RefreshButton";
 import ResetButton from "./components/ResetButton";
 import SkipButton from "./components/SkipButton";
+import TipsButton from "./components/TipsButton";
 import { STOPS } from "./config/trail";
 
 export default function App() {
@@ -67,6 +68,7 @@ export default function App() {
     <>
       <RefreshButton />
       <ResetButton />
+      <TipsButton />
       {showSkip && (
         <SkipButton
           onSkip={screen === "navigate" ? handleArrived : handleFinalArrived}

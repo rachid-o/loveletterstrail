@@ -359,9 +359,10 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
 }
 .progress-dot.done { background: var(--gold); border-color: var(--gold); }
 
-/* ── Refresh + Reset buttons (persistent overlay) ───────────── */
+/* ── Refresh + Reset + Tips buttons (persistent overlay) ────── */
 .refresh-btn,
-.reset-btn {
+.reset-btn,
+.tips-btn {
   position: fixed;
   right: clamp(10px, 3vw, 16px);
   z-index: 100;
@@ -383,8 +384,9 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
 .refresh-btn { top: clamp(10px, 3vw, 16px); }
 .reset-btn   { top: calc(clamp(10px, 3vw, 16px) * 2 + clamp(36px, 10vw, 44px)); font-size: clamp(0.8rem, 3.5vw, 1rem); }
 .skip-btn    { top: calc(clamp(10px, 3vw, 16px) * 3 + clamp(36px, 10vw, 44px) * 2); font-size: clamp(0.85rem, 3.5vw, 1rem); border-color: #555; color: #555; }
+.tips-btn    { top: calc(clamp(10px, 3vw, 16px) * 4 + clamp(36px, 10vw, 44px) * 3); font-size: clamp(1rem, 4vw, 1.2rem); font-family: 'Cinzel', serif; font-weight: 700; }
 
-.refresh-btn:hover, .reset-btn:hover { color: var(--gold); border-color: var(--gold); }
+.refresh-btn:hover, .reset-btn:hover, .tips-btn:hover { color: var(--gold); border-color: var(--gold); }
 .refresh-btn:active, .reset-btn:active { transform: scale(0.92); }
 .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
@@ -434,6 +436,32 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
   transition: opacity 0.2s;
 }
 .btn-danger:hover { opacity: 0.85; }
+
+/* ── Tips dialog ────────────────────────────────────────────── */
+.tips-dialog { gap: 16px; }
+.tips-title { font-size: 1.3rem; color: var(--gold); margin: 0; }
+.tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+.tips-list li {
+  font-size: 1rem;
+  color: var(--text);
+  padding-left: 1.4em;
+  position: relative;
+  line-height: 1.5;
+}
+.tips-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+}
 
 /* ── Final screens ──────────────────────────────────────────── */
 .final-arrived-screen { gap: clamp(18px, 4vh, 28px); }
