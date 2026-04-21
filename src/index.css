@@ -207,11 +207,15 @@ p { line-height: 1.6; color: var(--text); }
 }
 
 /* ── Navigation screen ──────────────────────────────────────── */
-.navigation-screen { gap: clamp(12px, 2.5vh, 20px); }
+.navigation-screen {
+  justify-content: space-evenly;
+  gap: clamp(8px, 2vh, 16px);
+}
 
 .compass-container {
-  width: min(82vw, 360px);
-  height: min(82vw, 360px);
+  /* Fill as much screen as possible — limited by width OR height */
+  width: min(88vw, 52dvh);
+  height: min(88vw, 52dvh);
   border-radius: 50%;
   background: radial-gradient(circle, #2e2010 0%, #1a1209 70%);
   border: 4px solid var(--gold-dim);
@@ -237,12 +241,12 @@ p { line-height: 1.6; color: var(--text); }
 }
 .distance-value {
   font-family: 'Cinzel', serif;
-  font-size: clamp(3rem, 14vw, 5rem);
+  font-size: clamp(3.5rem, 16vw, 6rem);
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
 }
-.distance-label { color: var(--text-dim); font-size: clamp(1rem, 4.5vw, 1.3rem); }
+.distance-label { color: var(--text-dim); font-size: clamp(1.1rem, 5vw, 1.5rem); }
 
 .nav-hint { color: var(--text-dim); font-size: clamp(0.8rem, 3.2vw, 0.95rem); max-width: 90%; }
 
