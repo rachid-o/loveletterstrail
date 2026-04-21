@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 async function hardReload() {
-  localStorage.clear();
   if ("serviceWorker" in navigator) {
     const regs = await navigator.serviceWorker.getRegistrations();
     await Promise.all(regs.map((r) => r.unregister()));

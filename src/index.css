@@ -340,10 +340,10 @@ p { line-height: 1.6; color: var(--text); }
 }
 .progress-dot.done { background: var(--gold); border-color: var(--gold); }
 
-/* ── Refresh button (persistent overlay) ───────────────────── */
-.refresh-btn {
+/* ── Refresh + Reset buttons (persistent overlay) ───────────── */
+.refresh-btn,
+.reset-btn {
   position: fixed;
-  top: clamp(10px, 3vw, 16px);
   right: clamp(10px, 3vw, 16px);
   z-index: 100;
   width: clamp(36px, 10vw, 44px);
@@ -361,9 +361,59 @@ p { line-height: 1.6; color: var(--text); }
   transition: color 0.2s, border-color 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
-.refresh-btn:hover  { color: var(--gold); border-color: var(--gold); }
-.refresh-btn:active { transform: scale(0.92); }
+.refresh-btn { top: clamp(10px, 3vw, 16px); }
+.reset-btn   { top: calc(clamp(10px, 3vw, 16px) * 2 + clamp(36px, 10vw, 44px)); font-size: clamp(0.8rem, 3.5vw, 1rem); }
+
+.refresh-btn:hover, .reset-btn:hover { color: var(--gold); border-color: var(--gold); }
+.refresh-btn:active, .reset-btn:active { transform: scale(0.92); }
 .refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Confirm dialog ─────────────────────────────────────────── */
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pad-x);
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.15s ease;
+}
+.confirm-dialog {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-dim);
+  border-radius: var(--radius);
+  padding: clamp(20px, 6vw, 32px);
+  max-width: min(100%, 360px);
+  width: 100%;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+.confirm-dialog p { font-size: clamp(0.95rem, 4vw, 1.1rem); color: var(--text); }
+.confirm-actions {
+  display: flex;
+  gap: 12px;
+}
+.confirm-actions .btn-secondary { flex: 1; }
+.btn-danger {
+  flex: 1;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: clamp(10px, 3vw, 14px);
+  font-size: clamp(0.9rem, 3.8vw, 1rem);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-danger:hover { opacity: 0.85; }
 
 /* ── Final screens ──────────────────────────────────────────── */
 .final-arrived-screen { gap: clamp(18px, 4vh, 28px); }

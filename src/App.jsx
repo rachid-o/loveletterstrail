@@ -7,6 +7,7 @@ import PuzzleScreen from "./components/PuzzleScreen";
 import StopCompleteScreen from "./components/StopCompleteScreen";
 import FinalScreen from "./components/FinalScreen";
 import RefreshButton from "./components/RefreshButton";
+import ResetButton from "./components/ResetButton";
 import { STOPS } from "./config/trail";
 
 export default function App() {
@@ -73,6 +74,7 @@ export default function App() {
   return (
     <>
       <RefreshButton />
+      <ResetButton />
       {content}
     </>
   );
