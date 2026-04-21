@@ -363,6 +363,7 @@ p { line-height: 1.6; color: var(--text); font-size: clamp(1rem, 4vw, 1.2rem); }
 }
 .refresh-btn { top: clamp(10px, 3vw, 16px); }
 .reset-btn   { top: calc(clamp(10px, 3vw, 16px) * 2 + clamp(36px, 10vw, 44px)); font-size: clamp(0.8rem, 3.5vw, 1rem); }
+.skip-btn    { top: calc(clamp(10px, 3vw, 16px) * 3 + clamp(36px, 10vw, 44px) * 2); font-size: clamp(0.85rem, 3.5vw, 1rem); border-color: #555; color: #555; }
 
 .refresh-btn:hover, .reset-btn:hover { color: var(--gold); border-color: var(--gold); }
 .refresh-btn:active, .reset-btn:active { transform: scale(0.92); }

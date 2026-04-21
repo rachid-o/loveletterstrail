@@ -8,6 +8,7 @@ import StopCompleteScreen from "./components/StopCompleteScreen";
 import FinalScreen from "./components/FinalScreen";
 import RefreshButton from "./components/RefreshButton";
 import ResetButton from "./components/ResetButton";
+import SkipButton from "./components/SkipButton";
 import { STOPS } from "./config/trail";
 
 export default function App() {
@@ -71,10 +72,17 @@ export default function App() {
   else if (screen === "final")
     content = <FinalScreen arrived={!!finalArrived} onArrived={handleFinalArrived} />;
 
+  const showSkip = screen === "navigate" || screen === "final";
+
   return (
     <>
       <RefreshButton />
       <ResetButton />
+      {showSkip && (
+        <SkipButton
+          onSkip={screen === "navigate" ? handleArrived : handleFinalArrived}
+        />
+      )}
       {content}
     </>
   );
