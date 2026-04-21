@@ -60,7 +60,7 @@ h1 {
 
 h2 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  font-size: clamp(1.4rem, 6vw, 2rem);
   color: var(--gold);
 }
 
@@ -207,15 +207,15 @@ p { line-height: 1.6; color: var(--text); }
 }
 
 /* ── Navigation screen ──────────────────────────────────────── */
-.navigation-screen { gap: clamp(16px, 3.5vh, 24px); }
+.navigation-screen { gap: clamp(12px, 2.5vh, 20px); }
 
 .compass-container {
-  width: min(65vw, 280px);
-  height: min(65vw, 280px);
+  width: min(82vw, 360px);
+  height: min(82vw, 360px);
   border-radius: 50%;
   background: radial-gradient(circle, #2e2010 0%, #1a1209 70%);
-  border: 3px solid var(--gold-dim);
-  box-shadow: 0 0 30px rgba(212,160,23,0.25), var(--shadow);
+  border: 4px solid var(--gold-dim);
+  box-shadow: 0 0 40px rgba(212,160,23,0.3), var(--shadow);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -223,31 +223,31 @@ p { line-height: 1.6; color: var(--text); }
 }
 
 .compass-arrow {
-  width: 40%;
-  height: 60%;
+  width: 42%;
+  height: 62%;
   transition: transform 0.3s ease-out;
-  filter: drop-shadow(0 0 8px rgba(212,160,23,0.6));
+  filter: drop-shadow(0 0 10px rgba(212,160,23,0.7));
 }
 
 .distance-display {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 .distance-value {
   font-family: 'Cinzel', serif;
-  font-size: clamp(2rem, 9vw, 3.2rem);
+  font-size: clamp(3rem, 14vw, 5rem);
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
 }
-.distance-label { color: var(--text-dim); font-size: clamp(0.8rem, 3.5vw, 1rem); }
+.distance-label { color: var(--text-dim); font-size: clamp(1rem, 4.5vw, 1.3rem); }
 
-.nav-hint { color: var(--text-dim); font-size: clamp(0.75rem, 3vw, 0.9rem); max-width: 90%; }
+.nav-hint { color: var(--text-dim); font-size: clamp(0.8rem, 3.2vw, 0.95rem); max-width: 90%; }
 
-.error-text  { color: var(--red);  font-size: clamp(0.85rem, 3.5vw, 1rem); }
-.loading-text { color: var(--text-dim); font-size: clamp(0.85rem, 3.5vw, 1rem); }
+.error-text  { color: var(--red);  font-size: clamp(0.9rem, 3.8vw, 1.1rem); }
+.loading-text { color: var(--text-dim); font-size: clamp(0.9rem, 3.8vw, 1.1rem); }
 
 /* ── Puzzle screen ──────────────────────────────────────────── */
 .puzzle-screen { gap: clamp(14px, 3vh, 20px); justify-content: flex-start; padding-top: clamp(32px, 7vh, 56px); }
