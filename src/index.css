@@ -13,8 +13,9 @@
   --text-dim:  #a89070;
   --red:       #c0392b;
   --green:     #27ae60;
-  --radius:    14px;
+  --radius:    clamp(10px, 3vw, 16px);
   --shadow:    0 4px 24px rgba(0,0,0,0.5);
+  --pad-x:     clamp(16px, 5vw, 32px);
 }
 
 html, body, #root {
@@ -27,7 +28,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Lato', sans-serif;
-  font-size: 16px;
+  font-size: clamp(15px, 4vw, 18px);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -38,8 +39,8 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100dvh;
-  padding: 24px 20px 40px;
-  gap: 20px;
+  padding: clamp(16px, 4vh, 32px) var(--pad-x) clamp(24px, 6vh, 48px);
+  gap: clamp(14px, 3vh, 24px);
   text-align: center;
   animation: fadeIn 0.35s ease;
 }
@@ -52,20 +53,20 @@ body {
 /* ── Typography ─────────────────────────────────────────────── */
 h1 {
   font-family: 'Cinzel', serif;
-  font-size: 1.8rem;
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
   color: var(--gold);
   line-height: 1.25;
 }
 
 h2 {
   font-family: 'Cinzel', serif;
-  font-size: 1.4rem;
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
   color: var(--gold);
 }
 
 p { line-height: 1.6; color: var(--text); }
 
-.subtitle { color: var(--text-dim); font-size: 0.95rem; }
+.subtitle { color: var(--text-dim); font-size: clamp(0.85rem, 3.5vw, 1rem); }
 
 /* ── Buttons ────────────────────────────────────────────────── */
 .btn-primary {
@@ -73,13 +74,13 @@ p { line-height: 1.6; color: var(--text); }
   color: #1a1209;
   border: none;
   border-radius: var(--radius);
-  padding: 14px 32px;
-  font-size: 1.05rem;
+  padding: clamp(12px, 3.5vw, 18px) clamp(24px, 6vw, 40px);
+  font-size: clamp(0.95rem, 4vw, 1.15rem);
   font-family: 'Cinzel', serif;
   font-weight: 700;
   cursor: pointer;
   width: 100%;
-  max-width: 340px;
+  max-width: min(100%, 420px);
   box-shadow: var(--shadow);
   transition: opacity 0.2s, transform 0.1s;
 }
@@ -92,8 +93,8 @@ p { line-height: 1.6; color: var(--text); }
   color: var(--gold);
   border: 1.5px solid var(--gold);
   border-radius: var(--radius);
-  padding: 10px 24px;
-  font-size: 0.95rem;
+  padding: clamp(8px, 2.5vw, 12px) clamp(18px, 5vw, 28px);
+  font-size: clamp(0.85rem, 3.5vw, 1rem);
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -105,7 +106,7 @@ p { line-height: 1.6; color: var(--text); }
   color: var(--bg);
   font-family: 'Cinzel', serif;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 3vw, 0.85rem);
   padding: 4px 14px;
   border-radius: 99px;
   letter-spacing: 0.06em;
@@ -116,25 +117,25 @@ p { line-height: 1.6; color: var(--text); }
   background: var(--bg-card);
   border: 1px solid var(--gold-dim);
   color: var(--gold);
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 3vw, 0.85rem);
   padding: 4px 12px;
   border-radius: 99px;
 }
 
 /* ── PIN screen ─────────────────────────────────────────────── */
-.pin-screen { gap: 28px; }
+.pin-screen { gap: clamp(20px, 4vh, 32px); }
 
-.pin-header .compass-icon { font-size: 3rem; margin-bottom: 8px; }
-.pin-header h1 { font-size: 1.5rem; }
+.pin-header .compass-icon { font-size: clamp(2.5rem, 10vw, 4rem); margin-bottom: 6px; }
+.pin-header h1 { font-size: clamp(1.3rem, 5.5vw, 1.8rem); }
 .pin-header p  { color: var(--text-dim); margin-top: 4px; }
 
 .pin-dots {
   display: flex;
-  gap: 16px;
+  gap: clamp(12px, 4vw, 20px);
 }
 .dot {
-  width: 18px;
-  height: 18px;
+  width: clamp(14px, 4.5vw, 20px);
+  height: clamp(14px, 4.5vw, 20px);
   border-radius: 50%;
   border: 2px solid var(--gold);
   background: transparent;
@@ -151,17 +152,17 @@ p { line-height: 1.6; color: var(--text); }
 
 .pin-pad {
   display: grid;
-  grid-template-columns: repeat(3, 72px);
-  gap: 12px;
+  grid-template-columns: repeat(3, min(22vw, 84px));
+  gap: clamp(10px, 3vw, 16px);
 }
 .pin-btn {
-  width: 72px;
-  height: 72px;
+  width: min(22vw, 84px);
+  height: min(22vw, 84px);
   border-radius: 50%;
   background: var(--bg-card);
   border: 1.5px solid var(--gold-dim);
   color: var(--text);
-  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
   font-family: 'Lato', sans-serif;
   cursor: pointer;
   transition: background 0.15s;
@@ -171,16 +172,16 @@ p { line-height: 1.6; color: var(--text); }
 }
 .pin-btn:hover  { background: rgba(212,160,23,0.15); }
 .pin-btn:active { background: rgba(212,160,23,0.3); }
-.delete-btn { font-size: 1.2rem; color: var(--gold); }
+.delete-btn { font-size: clamp(1rem, 4vw, 1.4rem); color: var(--gold); }
 
 /* ── Welcome screen ─────────────────────────────────────────── */
-.welcome-screen { gap: 18px; }
+.welcome-screen { gap: clamp(14px, 3vh, 20px); }
 
-.welcome-icon { font-size: 4rem; }
+.welcome-icon { font-size: clamp(3rem, 12vw, 5rem); }
 
 .welcome-photo {
-  width: 140px;
-  height: 140px;
+  width: min(38vw, 160px);
+  height: min(38vw, 160px);
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--gold);
@@ -192,12 +193,13 @@ p { line-height: 1.6; color: var(--text); }
   background: var(--bg-card);
   border: 1px solid var(--gold-dim);
   border-radius: var(--radius);
-  padding: 16px 20px;
-  max-width: 360px;
+  padding: clamp(14px, 4vw, 22px);
+  width: 100%;
+  max-width: min(100%, 480px);
   text-align: left;
   line-height: 1.7;
 }
-.welcome-message p { color: var(--text); }
+.welcome-message p { color: var(--text); font-size: clamp(0.9rem, 3.8vw, 1.05rem); }
 
 .stop-count {
   display: flex;
@@ -205,11 +207,11 @@ p { line-height: 1.6; color: var(--text); }
 }
 
 /* ── Navigation screen ──────────────────────────────────────── */
-.navigation-screen { gap: 20px; }
+.navigation-screen { gap: clamp(16px, 3.5vh, 24px); }
 
 .compass-container {
-  width: 200px;
-  height: 200px;
+  width: min(65vw, 280px);
+  height: min(65vw, 280px);
   border-radius: 50%;
   background: radial-gradient(circle, #2e2010 0%, #1a1209 70%);
   border: 3px solid var(--gold-dim);
@@ -221,8 +223,8 @@ p { line-height: 1.6; color: var(--text); }
 }
 
 .compass-arrow {
-  width: 80px;
-  height: 120px;
+  width: 40%;
+  height: 60%;
   transition: transform 0.3s ease-out;
   filter: drop-shadow(0 0 8px rgba(212,160,23,0.6));
 }
@@ -235,34 +237,34 @@ p { line-height: 1.6; color: var(--text); }
 }
 .distance-value {
   font-family: 'Cinzel', serif;
-  font-size: 2.4rem;
+  font-size: clamp(2rem, 9vw, 3.2rem);
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
 }
-.distance-label { color: var(--text-dim); font-size: 0.9rem; }
+.distance-label { color: var(--text-dim); font-size: clamp(0.8rem, 3.5vw, 1rem); }
 
-.nav-hint { color: var(--text-dim); font-size: 0.8rem; max-width: 300px; }
+.nav-hint { color: var(--text-dim); font-size: clamp(0.75rem, 3vw, 0.9rem); max-width: 90%; }
 
-.error-text  { color: var(--red);  font-size: 0.9rem; }
-.loading-text { color: var(--text-dim); font-size: 0.9rem; }
+.error-text  { color: var(--red);  font-size: clamp(0.85rem, 3.5vw, 1rem); }
+.loading-text { color: var(--text-dim); font-size: clamp(0.85rem, 3.5vw, 1rem); }
 
 /* ── Puzzle screen ──────────────────────────────────────────── */
-.puzzle-screen { gap: 18px; justify-content: flex-start; padding-top: 48px; }
+.puzzle-screen { gap: clamp(14px, 3vh, 20px); justify-content: flex-start; padding-top: clamp(32px, 7vh, 56px); }
 
-.puzzle-type-icon { font-size: 2.8rem; }
+.puzzle-type-icon { font-size: clamp(2.2rem, 9vw, 3.2rem); }
 
 .puzzle-box {
   background: var(--bg-card);
   border: 1px solid var(--gold-dim);
   border-radius: var(--radius);
-  padding: 20px 24px;
-  max-width: 360px;
+  padding: clamp(16px, 5vw, 26px);
   width: 100%;
+  max-width: min(100%, 480px);
   box-shadow: var(--shadow);
 }
 .puzzle-question {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 4vw, 1.15rem);
   line-height: 1.8;
   white-space: pre-line;
   color: var(--text);
@@ -272,33 +274,33 @@ p { line-height: 1.6; color: var(--text); }
   background: rgba(212,160,23,0.1);
   border: 1px solid var(--gold);
   border-radius: var(--radius);
-  padding: 12px 16px;
-  max-width: 360px;
+  padding: clamp(10px, 3.5vw, 16px);
   width: 100%;
+  max-width: min(100%, 480px);
   text-align: left;
 }
 .hint-label {
-  font-size: 0.8rem;
+  font-size: clamp(0.75rem, 3vw, 0.85rem);
   font-weight: 700;
   color: var(--gold);
   display: block;
   margin-bottom: 4px;
 }
-.hint-box p { font-size: 0.9rem; color: var(--text-dim); }
+.hint-box p { font-size: clamp(0.85rem, 3.5vw, 1rem); color: var(--text-dim); }
 
 .answer-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: clamp(10px, 2.5vw, 14px);
   width: 100%;
-  max-width: 360px;
+  max-width: min(100%, 480px);
 }
 .answer-input {
   background: var(--bg-card);
   border: 1.5px solid var(--gold-dim);
   border-radius: var(--radius);
-  padding: 14px 16px;
-  font-size: 1.1rem;
+  padding: clamp(12px, 3.5vw, 18px) clamp(14px, 4vw, 20px);
+  font-size: clamp(1rem, 4.5vw, 1.25rem);
   color: var(--text);
   text-align: center;
   font-family: 'Lato', sans-serif;
@@ -310,14 +312,14 @@ p { line-height: 1.6; color: var(--text); }
 
 .wrong-feedback {
   color: var(--red);
-  font-size: 0.9rem;
-  max-width: 320px;
+  font-size: clamp(0.85rem, 3.5vw, 1rem);
+  max-width: 90%;
 }
 
 /* ── Stop complete screen ───────────────────────────────────── */
-.stop-complete-screen { gap: 24px; }
+.stop-complete-screen { gap: clamp(18px, 4vh, 28px); }
 
-.complete-icon { font-size: 5rem; animation: pop 0.5s cubic-bezier(.36,2,.45,.9) both; }
+.complete-icon { font-size: clamp(4rem, 18vw, 6rem); animation: pop 0.5s cubic-bezier(.36,2,.45,.9) both; }
 
 @keyframes pop {
   from { transform: scale(0.3); opacity: 0; }
@@ -326,11 +328,11 @@ p { line-height: 1.6; color: var(--text); }
 
 .progress-dots {
   display: flex;
-  gap: 10px;
+  gap: clamp(8px, 3vw, 14px);
 }
 .progress-dot {
-  width: 14px;
-  height: 14px;
+  width: clamp(12px, 4vw, 16px);
+  height: clamp(12px, 4vw, 16px);
   border-radius: 50%;
   border: 2px solid var(--gold-dim);
   background: transparent;
@@ -339,21 +341,20 @@ p { line-height: 1.6; color: var(--text); }
 .progress-dot.done { background: var(--gold); border-color: var(--gold); }
 
 /* ── Final screens ──────────────────────────────────────────── */
-.final-navigation { }
+.final-arrived-screen { gap: clamp(18px, 4vh, 28px); }
 
-.final-arrived-screen { gap: 24px; }
-
-.fireworks { font-size: 5rem; animation: pop 0.6s cubic-bezier(.36,2,.45,.9) both; }
+.fireworks { font-size: clamp(4rem, 18vw, 6rem); animation: pop 0.6s cubic-bezier(.36,2,.45,.9) both; }
 
 .final-message {
   background: var(--bg-card);
   border: 1px solid var(--gold);
   border-radius: var(--radius);
-  padding: 20px 24px;
-  max-width: 360px;
+  padding: clamp(16px, 5vw, 26px);
+  width: 100%;
+  max-width: min(100%, 480px);
   text-align: center;
   box-shadow: 0 0 30px rgba(212,160,23,0.2);
 }
-.final-message p { color: var(--text); line-height: 1.75; }
+.final-message p { color: var(--text); line-height: 1.75; font-size: clamp(0.9rem, 3.8vw, 1.05rem); }
 
-.final-hearts { font-size: 2rem; letter-spacing: 8px; }
+.final-hearts { font-size: clamp(1.6rem, 7vw, 2.4rem); letter-spacing: clamp(4px, 2vw, 10px); }
