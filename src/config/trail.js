@@ -15,10 +15,8 @@ export const STOPS = [
   {
     id: 1,
     name: "Bankje",
-    lat: 51.840211,
-    lng: 5.833155,
-    // lat: 51.84021180159039,
-    // lng: 5.833155188908399,
+    lat: 51.83892126099432,
+    lng: 5.8328424003137895,
     arrivalRadius: 20,
     puzzle: {
       type: "riddle",
