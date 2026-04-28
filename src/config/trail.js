@@ -23,10 +23,10 @@ export const STOPS = [
     puzzle: {
       type: "riddle",
       question:
-        "Waar sta je op?",
-      answer: "zand",
+        "1 + 1 = ?",
+      answer: "2",
       hints: [
-        "De woestijn ligt er vol mee",
+        "Gebruik een rekenmachine",
       ],
     },
     completeMessage: "Geweldig! Jullie eerste stop zit erop! 🎉",

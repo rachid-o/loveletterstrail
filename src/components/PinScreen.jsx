@@ -33,7 +33,7 @@ export default function PinScreen({ onSuccess }) {
       <div className="pin-header">
         <div className="compass-icon">🗝️</div>
         <h1>Love Letters Trail</h1>
-        <p>Voer de PIN-code in</p>
+        <p>Voer de PIN-code in (het jaar dat het allemaal begon)</p>
       </div>
 
       <div className={`pin-dots ${shake ? "shake" : ""}`}>
