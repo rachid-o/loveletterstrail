@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { useWakeLock } from "./hooks/useWakeLock";
 import { useProgress } from "./hooks/useProgress";
 import PinScreen from "./components/PinScreen";
 import WelcomeScreen from "./components/WelcomeScreen";
@@ -13,6 +14,7 @@ import TipsButton from "./components/TipsButton";
 import { STOPS, DEBUG_MODE } from "./config/trail";
 
 export default function App() {
+  useWakeLock();
   const { progress, update } = useProgress();
   const { screen, currentStopIndex, finalArrived } = progress;
 
