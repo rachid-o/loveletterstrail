@@ -52,6 +52,12 @@ export default function PinScreen({ onSuccess }) {
         <button className="pin-btn" onClick={() => handleDigit("0")}>0</button>
         <button className="pin-btn delete-btn" onClick={handleDelete}>⌫</button>
       </div>
+
+      <div className="install-hint">
+        <p className="install-hint-title">Werkt het beste als app in Chrome</p>
+        <p>Android: tik op <strong>⋮</strong> → <strong>Toevoegen aan startscherm</strong></p>
+        <p>iPhone: tik op <strong>deel-icoon</strong> → <strong>Zet op beginscherm</strong></p>
+      </div>
     </div>
   );
 }

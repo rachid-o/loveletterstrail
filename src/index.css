@@ -177,6 +177,24 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
 .pin-btn:active { background: rgba(212,160,23,0.3); }
 .delete-btn { font-size: 1.5rem; color: var(--gold); }
 
+.install-hint {
+  border-top: 1px solid rgba(212,160,23,0.2);
+  padding-top: 14px;
+  text-align: center;
+  max-width: min(100%, 360px);
+}
+.install-hint-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-dim);
+  margin-bottom: 6px;
+}
+.install-hint p {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
 /* ── Welcome screen ─────────────────────────────────────────── */
 .welcome-screen { gap: clamp(14px, 3vh, 20px); }
 
