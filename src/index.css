@@ -393,8 +393,8 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
   position: fixed;
   right: clamp(10px, 3vw, 16px);
   z-index: 100;
-  width: clamp(36px, 10vw, 44px);
-  height: clamp(36px, 10vw, 44px);
+  width: clamp(44px, 13vw, 56px);
+  height: clamp(44px, 13vw, 56px);
   border-radius: 50%;
   background: rgba(26, 18, 9, 0.7);
   border: 1px solid var(--gold-dim);
@@ -409,9 +409,9 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
   -webkit-tap-highlight-color: transparent;
 }
 .refresh-btn { top: clamp(10px, 3vw, 16px); }
-.reset-btn   { top: calc(clamp(10px, 3vw, 16px) * 2 + clamp(36px, 10vw, 44px)); font-size: clamp(0.8rem, 3.5vw, 1rem); }
-.skip-btn    { top: calc(clamp(10px, 3vw, 16px) * 3 + clamp(36px, 10vw, 44px) * 2); font-size: clamp(0.85rem, 3.5vw, 1rem); border-color: #555; color: #555; }
-.tips-btn    { top: calc(clamp(10px, 3vw, 16px) * 4 + clamp(36px, 10vw, 44px) * 3); font-size: clamp(1rem, 4vw, 1.2rem); font-family: 'Cinzel', serif; font-weight: 700; }
+.reset-btn   { top: calc(clamp(10px, 3vw, 16px) * 2 + clamp(44px, 13vw, 56px)); font-size: clamp(0.9rem, 4vw, 1.1rem); }
+.skip-btn    { top: calc(clamp(10px, 3vw, 16px) * 3 + clamp(44px, 13vw, 56px) * 2); font-size: clamp(1rem, 4vw, 1.2rem); border-color: #555; color: #555; }
+.tips-btn    { top: calc(clamp(10px, 3vw, 16px) * 4 + clamp(44px, 13vw, 56px) * 3); font-size: clamp(1rem, 4vw, 1.2rem); font-family: 'Cinzel', serif; font-weight: 700; }
 
 .refresh-btn:hover, .reset-btn:hover, .tips-btn:hover { color: var(--gold); border-color: var(--gold); }
 .refresh-btn:active, .reset-btn:active { transform: scale(0.92); }
