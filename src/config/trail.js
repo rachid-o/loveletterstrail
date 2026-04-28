@@ -2,6 +2,8 @@
 //  CONFIGURATIE — pas hier alles aan voor jullie tocht
 // ============================================================
 
+export const DEBUG_MODE = true; // ← zet op false vóór je deployt
+
 export const PIN = "2005"; // PIN-code om de app te openen
 
 export const WELCOME = {
@@ -21,11 +23,10 @@ export const STOPS = [
     puzzle: {
       type: "riddle",
       question:
-        "Ik sta stil maar loop altijd door,\nIk heb wijzers maar geen handen.\nIk tick, ik tok, elk uur opnieuw —\nwat ben ik?",
-      answer: "klok",
+        "Waar sta je op?",
+      answer: "zand",
       hints: [
-        "Ik heb geen mond, toch spreek ik de tijd.",
-        "Je vindt me in bijna elke kamer thuis — aan de muur.",
+        "De woestijn ligt er vol mee",
       ],
     },
     completeMessage: "Geweldig! Jullie eerste stop zit erop! 🎉",

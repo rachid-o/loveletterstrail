@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useGeolocation } from "../hooks/useGeolocation";
 import { useCompass } from "../hooks/useCompass";
 import { haversineDistance, calculateBearing, formatDistance } from "../utils/geo";
-import { STOPS } from "../config/trail";
+import { STOPS, DEBUG_MODE } from "../config/trail";
 
 // Always rotate the shortest way (avoids spinning 340° instead of 20°)
 function shortestPath(from, to) {
@@ -80,6 +80,17 @@ export default function NavigationScreen({ stopIndex, onArrived }) {
       <p className="nav-hint">
         Houd je telefoon horizontaal voor het beste kompas-resultaat.
       </p>
+
+      {DEBUG_MODE && (
+        <a
+          className="debug-maps-link"
+          href={`https://maps.google.com/?q=${stop.lat},${stop.lng}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          🗺 Open in Google Maps
+        </a>
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useGeolocation } from "../hooks/useGeolocation";
 import { useCompass } from "../hooks/useCompass";
 import { haversineDistance, calculateBearing, formatDistance } from "../utils/geo";
-import { FINAL } from "../config/trail";
+import { FINAL, DEBUG_MODE } from "../config/trail";
 
 function shortestPath(from, to) {
   const diff = ((to - from + 180) % 360 + 360) % 360 - 180;
@@ -87,6 +87,17 @@ export default function FinalScreen({ arrived, onArrived }) {
           <p className="loading-text">GPS bepalen…</p>
         )}
       </div>
+
+      {DEBUG_MODE && (
+        <a
+          className="debug-maps-link"
+          href={`https://maps.google.com/?q=${FINAL.lat},${FINAL.lng}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          🗺 Open in Google Maps
+        </a>
+      )}
     </div>
   );
 }

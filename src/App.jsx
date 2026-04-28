@@ -10,7 +10,7 @@ import RefreshButton from "./components/RefreshButton";
 import ResetButton from "./components/ResetButton";
 import SkipButton from "./components/SkipButton";
 import TipsButton from "./components/TipsButton";
-import { STOPS } from "./config/trail";
+import { STOPS, DEBUG_MODE } from "./config/trail";
 
 export default function App() {
   const { progress, update } = useProgress();
@@ -62,7 +62,7 @@ export default function App() {
   else if (screen === "final")
     content = <FinalScreen arrived={!!finalArrived} onArrived={handleFinalArrived} />;
 
-  const showSkip = screen === "navigate" || screen === "final";
+  const showSkip = DEBUG_MODE && (screen === "navigate" || screen === "final");
 
   return (
     <>

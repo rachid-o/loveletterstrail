@@ -478,6 +478,14 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
   color: var(--gold-dim);
 }
 
+/* ── Debug helpers (alleen zichtbaar als DEBUG_MODE = true) ──── */
+.debug-maps-link {
+  color: #ff6b35;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  opacity: 0.75;
+}
+
 /* ── Final screens ──────────────────────────────────────────── */
 .final-arrived-screen { gap: clamp(18px, 4vh, 28px); }
 
