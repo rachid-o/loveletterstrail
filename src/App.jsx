@@ -73,7 +73,7 @@ export default function App() {
       <TipsButton />
       {showSkip && (
         <SkipButton
-          onSkip={screen === "navigate" ? handleArrived : handleFinalArrived}
+          onSkip={screen === "navigate" ? handleNextStop : handleFinalArrived}
         />
       )}
       {content}
