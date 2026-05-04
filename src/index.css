@@ -510,6 +510,12 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
   opacity: 0.75;
 }
 
+.debug-badge {
+  color: #ff6b35;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
 /* ── Final screens ──────────────────────────────────────────── */
 .final-arrived-screen { gap: clamp(18px, 4vh, 28px); }
 
