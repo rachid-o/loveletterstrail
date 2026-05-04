@@ -84,21 +84,6 @@ export const STOPS = [
     },
     completeMessage: "Goed gedaan! Op naar de volgende stop.",
   },
-  {
-    id: 8,
-    name: "Plutostraat",
-    lat: 51.8376845,
-    lng: 5.8325001,
-    arrivalRadius: 30,
-    puzzle: {
-      type: "text",
-      question: "Wat is 1 + 1?",
-      answer: "2",
-      hints: ["Het antwoord is een getal."],
-    },
-    completeMessage: "Goed gedaan! Dit was de laatste stop.",
-  },
-
   // {
   //   id: 10,
   //   name: "Speeltuin",
@@ -174,8 +159,8 @@ export const STOPS = [
 ];
 
 export const FINAL = {
-  lat: 51.847778,
-  lng: 5.870833,
+  lat: 51.8376845,
+  lng: 5.8325001,
   arrivalRadius: 30,
   title: "Jullie zijn er! 🥂",
   message:
