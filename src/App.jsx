@@ -54,19 +54,21 @@ export default function App() {
     }
   }, [screen, currentStopIndex, update]);
 
+  const validStop = currentStopIndex < STOPS.length;
+
   let content = null;
   if (screen === "pin") content = <PinScreen onSuccess={handlePinSuccess} />;
   else if (screen === "welcome") content = <WelcomeScreen onStart={handleStart} />;
-  else if (screen === "navigate")
+  else if (screen === "navigate" && validStop)
     content = <NavigationScreen stopIndex={currentStopIndex} onArrived={handleArrived} />;
-  else if (screen === "puzzle")
+  else if (screen === "puzzle" && validStop)
     content = (
       <PuzzleScreen
         stopIndex={currentStopIndex}
         onSolved={handleSolved}
       />
     );
-  else if (screen === "stopComplete")
+  else if (screen === "stopComplete" && validStop)
     content = <StopCompleteScreen stopIndex={currentStopIndex} onNext={handleNextStop} />;
   else if (screen === "final")
     content = <FinalScreen arrived={!!finalArrived} onArrived={handleFinalArrived} />;
