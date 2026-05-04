@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useWakeLock } from "./hooks/useWakeLock";
 import { useProgress } from "./hooks/useProgress";
 import PinScreen from "./components/PinScreen";
@@ -46,6 +46,13 @@ export default function App() {
   const handleFinalArrived = useCallback(() => {
     update({ finalArrived: true });
   }, [update]);
+
+  useEffect(() => {
+    const stopScreens = ["navigate", "puzzle", "stopComplete"];
+    if (stopScreens.includes(screen) && currentStopIndex >= STOPS.length) {
+      update({ screen: "final" });
+    }
+  }, [screen, currentStopIndex, update]);
 
   let content = null;
   if (screen === "pin") content = <PinScreen onSuccess={handlePinSuccess} />;
