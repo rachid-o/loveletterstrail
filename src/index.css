@@ -503,6 +503,13 @@ p { line-height: 1.6; color: var(--text); font-size: 1.15rem; }
 }
 
 /* ── Debug helpers (alleen zichtbaar als DEBUG_MODE = true) ──── */
+.debug-maps-link,
+.debug-badge,
+.skip-btn {
+  outline: 2px dashed red;
+  outline-offset: 3px;
+}
+
 .debug-maps-link {
   color: #ff6b35;
   font-size: 0.9rem;

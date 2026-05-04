@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { STOPS, DEBUG_MODE } from "../config/trail";
+import { STOPS } from "../config/trail";
 
 const TYPE_ICON = {
   riddle: "🧩",
@@ -34,10 +34,6 @@ export default function PuzzleScreen({ stopIndex, onSolved }) {
       <div className="stop-badge">
         Stop {stopIndex + 1} / {STOPS.length}
       </div>
-
-      {DEBUG_MODE && (
-        <div className="debug-badge">📍 aankomstradius: {stop.arrivalRadius} m</div>
-      )}
 
       <div className="puzzle-type-icon">{TYPE_ICON[puzzle.type] ?? "❓"}</div>
 
